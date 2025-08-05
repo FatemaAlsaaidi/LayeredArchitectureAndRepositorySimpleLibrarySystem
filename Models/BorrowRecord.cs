@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LayeredArchitectureAndRepositorySimpleLibrarySystem.Models
 {
-    class BorrowRecord
+    public class BorrowRecord
     {
         // Represents a record of a book borrowed by a member
         public static int RecordCount { get; set; } = 0; // Static property to keep track of the number of borrow records

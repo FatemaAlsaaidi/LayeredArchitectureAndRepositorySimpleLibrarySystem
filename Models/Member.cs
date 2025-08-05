@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LayeredArchitectureAndRepositorySimpleLibrarySystem.Models
 {
-    class Member
+    public class Member
     {
         // Properties a member in the library system
         public static int MemberCount { get; set; } = 0;
