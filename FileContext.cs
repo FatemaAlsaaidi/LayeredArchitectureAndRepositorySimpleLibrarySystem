@@ -29,7 +29,29 @@ namespace LayeredArchitectureAndRepositorySimpleLibrarySystem
             }
         }
 
-       
+        // Load data from a file and return as a List<T>
+        public static List<T> LoadDataFromFile<T>(string filePath)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    Console.WriteLine($"File not found: {filePath}. Returning empty list.");
+                    return new List<T>();
+                }
+
+                string jsonData = File.ReadAllText(filePath);
+                return JsonSerializer.Deserialize<List<T>>(jsonData) ?? new List<T>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading data: {ex.Message}");
+                return new List<T>();
+            }
+        }
+
+
+
 
 
     }
