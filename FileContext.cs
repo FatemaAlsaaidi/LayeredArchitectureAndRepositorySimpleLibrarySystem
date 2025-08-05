@@ -14,7 +14,23 @@ namespace LayeredArchitectureAndRepositorySimpleLibrarySystem
         public static string FileMembersPath = "Members.json";
         public static string FileBorrowRecordPath = "BorrowRecord.json";
 
+        // Save data to a file in JSON format
+        public static void SaveDataToFile<T>(List<T> data, string filePath)
+        {
+            try
+            {
+                string jsonData = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(filePath, jsonData);
+                Console.WriteLine($"Data saved successfully to {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving data: {ex.Message}");
+            }
+        }
+
        
+
 
     }
 
