@@ -13,5 +13,17 @@ namespace LayeredArchitectureAndRepositorySimpleLibrarySystem.Repositories
         {
             return FileContext.LoadDataFromFile<Models.BorrowRecord>(FileContext.FileBorrowRecordPath);
         }
+
+        // Method to add a new borrow record
+        public void BorrowBook(Models.BorrowRecord borrowRecord)
+        {
+            // Load existing borrow records
+            var borrowRecords = GetAllBorrowRecords();
+            // Add the new borrow record to the list
+            borrowRecords.Add(borrowRecord);
+            // Save the updated list back to the file
+            FileContext.SaveDataToFile(borrowRecords, FileContext.FileBorrowRecordPath);
+        }
+
     }
 }
